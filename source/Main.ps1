@@ -4,7 +4,12 @@
 #--------------------------------------------------------------------------------
 # 戻り値　｜下記の通り。
 # 　　　　｜   0: 正常終了
-# 　　　　｜-101: 
+# 　　　　｜-101: 設定ファイルの読み込み失敗
+# 　　　　｜-201: 集計開始日付の入力失敗
+# 　　　　｜-202: 集計終了日付の入力失敗
+# 　　　　｜-203: 日付の検証（期間）が失敗
+# 　　　　｜-301: 上書き保存の確認でいいえ
+# 　　　　｜-401: データ取得した件数が0件
 # 引数　　｜-
 #################################################################################
 # 定数
@@ -38,7 +43,7 @@ Function ExpandString($target_str) {
 # 戻り値　｜Boolean（True: 有効, False: 無効）
 # 引数　　｜targetdate: 対象文字列
 #################################################################################
-Function IsValidDatetime($targetdate){
+Function IsValidDatetime([System.String]$targetdate){
     [System.Boolean]$return = $false
     [System.String]$prompt_message = ''
     [System.Text.StringBuilder]$sbtemp=New-Object System.Text.StringBuilder
@@ -164,7 +169,7 @@ Function ExecutereaderMysql([MySql.Data.MySqlClient.MySqlConnection]$dbsession, 
 # 戻り値　｜Boolean（True: 正常終了, False: 処理中断）
 # 引数　　｜prompt_message: 入力応答待ち時のメッセージ内容
 #################################################################################
-Function ConfirmYesno($prompt_message) {
+Function ConfirmYesno([System.String]$prompt_message) {
     [System.Boolean]$return = $false
     [System.String]$value = $null
     [System.Text.StringBuilder]$sbtemp=New-Object System.Text.StringBuilder
