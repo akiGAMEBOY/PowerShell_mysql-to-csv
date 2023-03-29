@@ -23,7 +23,7 @@
 # 戻り値　｜String（展開後の文字列）
 # 引数　　｜target_str: 対象文字列
 #################################################################################
-Function ExpandString($target_str) {
+Function ExpandString([System.String]$target_str) {
     [System.String]$expand_str = $target_str
     
     If ($target_str.Length -ge 2) {
