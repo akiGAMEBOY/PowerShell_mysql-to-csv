@@ -12,7 +12,7 @@ ECHO *
 ECHO *---------------------------------------------------------
 ECHO.
 ECHO.
-
+SET RETURNCODE=0
 powershell -NoProfile -ExecutionPolicy Unrestricted -File .\source\Main.ps1
 SET RETURNCODE=%ERRORLEVEL%
 
