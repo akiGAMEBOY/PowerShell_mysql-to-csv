@@ -65,7 +65,7 @@ Function IsValidDatetime([System.String]$targetdate){
         $return = $false
     }
 
-    if (-not $return) {
+    if (-Not $return) {
         $sbtemp=New-Object System.Text.StringBuilder
         @("エラー　　: 日付のフォーマット検証`r`n",`
           "　　　　　　日付のフォーマット検証が失敗しました。`r`n",`
@@ -404,7 +404,7 @@ if ($result -eq 0) {
             # YesNo入力
             $return = ConfirmYesno $prompt_message
 
-            if (-not $return) {
+            if (-Not $return) {
                 $result = -301
             }
         # ファイルがない場合
